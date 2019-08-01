@@ -1,0 +1,13 @@
+{
+    "name": "orel/canvas-drawing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OREL",
+            "email": "orelenriquez19@gmail.com"
+        }
+    ],
+    "require": {
+        "cboden/ratchet": "^0.4.1"
+    }
+}

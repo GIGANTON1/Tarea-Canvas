@@ -1,0 +1,285 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: gray;
+
+        }
+        #mesa-dibujo {
+            border: 1px solid #000;
+            background-color: white;
+        }
+        #mesa-dibujo-imprimir{
+            border: 1px solid #000;
+            background-color: white;
+        }
+        #colores {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+        }
+        #colores .color {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        #colores .color:hover {
+            border: 2px solid #000;
+        }
+        #colores .color.negro {
+            background-color: #000;
+        }
+        #colores .color.azul {
+            background-color: #00F;
+        }
+        #colores .color.rojo {
+            background-color: #F00;
+        }
+        #colores .color.verde {
+            background-color: #0F0;
+        }
+        /*Grosor*/
+        #grosor_titulo{
+            font-weight: bolder;
+            font-size: 30px;
+            color: white;
+        }
+        #grosores {
+          display: flex;
+          width: 100%;
+          padding: 10px;
+          color: white;
+        }
+        #grosores .grosor {
+          width: 50px;
+          height: 35px;
+          border-radius: 50%;
+          margin-left: 10px;
+          cursor: pointer;
+          border: 2px solid transparent;
+          text-align-all: center;
+         }
+        #grosores .grosor.uno {
+
+          text-align: center;
+          padding-top: 2px;
+        }
+        #grosores .grosor.dos {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.tres {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.cuatro {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.cinco {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.seis {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.siete {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.ocho {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.nueve {
+
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.diez{
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.once {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.doce{
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.trece {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.catorce{
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.quince {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.dieciseis{
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.diecisiete {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.dieciocho{
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.diecinueve {
+          text-align: center;
+          padding-top: 5px;
+        }
+        #grosores .grosor.veinte{
+          text-align: center;
+          padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<!----Canvas Principal----->
+<canvas id="mesa-dibujo" width=800" height="400"></canvas>
+<!----Colores----->
+<div id="colores">
+    <div class="color negro" onclick="cambiarColor('#000')"></div>
+    <div class="color azul" onclick="cambiarColor('#00F')"></div>
+    <div class="color rojo" onclick="cambiarColor('#F00')"></div>
+    <div class="color verde" onclick="cambiarColor('#0F0')"></div>
+</div>
+<!----Grosores----->
+<label id="grosor_titulo">Grosor</label>
+<div id="grosores">
+    <div class="grosor uno" onclick="cambiarGrosor('1')">1</div>
+    <div class="grosor dos" onclick="cambiarGrosor('2')">2</div>
+    <div class="grosor tres" onclick="cambiarGrosor('3')">3</div>
+    <div class="grosor cuatro" onclick="cambiarGrosor('4')">4</div>
+    <div class="grosor cinco" onclick="cambiarGrosor('5')">5</div>
+    <div class="grosor seis" onclick="cambiarGrosor('6')">6</div>
+    <div class="grosor siete" onclick="cambiarGrosor('7')">7</div>
+    <div class="grosor ocho" onclick="cambiarGrosor('8')">8</div>
+    <div class="grosor nueve" onclick="cambiarGrosor('9')">9</div>
+    <div class="grosor diez" onclick="cambiarGrosor('10')">10</div>
+    <div class="grosor once" onclick="cambiarGrosor('11')">11</div>
+    <div class="grosor doce" onclick="cambiarGrosor('12')">12</div>
+    <div class="grosor trece" onclick="cambiarGrosor('13')">13</div>
+    <div class="grosor catorce" onclick="cambiarGrosor('14')">14</div>
+    <div class="grosor quince" onclick="cambiarGrosor('15')">15</div>
+    <div class="grosor dieciseis" onclick="cambiarGrosor('16')">16</div>
+    <div class="grosor diecisiete" onclick="cambiarGrosor('17')">17</div>
+    <div class="grosor dieciocho" onclick="cambiarGrosor('18')">18</div>
+    <div class="grosor diecinueve" onclick="cambiarGrosor('19')">19</div>
+    <div class="grosor veinte" onclick="cambiarGrosor('20')">20</div>
+</div>
+<!----Canvas Secundario----->
+<canvas id="mesa-dibujo-imprimir" width=800" height="400"></canvas>
+<script>
+
+    const ws = new WebSocket("ws://127.0.0.1:4000");
+    //Canvas Principal
+    let canvas = document.getElementById("mesa-dibujo");
+    canvas.width = window.innerWidth;
+    let contexto = canvas.getContext("2d");
+    let presionado = false;
+    let coordenadasAgrupadas = [];
+    //Canvas Secundario
+    /*<?php
+    $pdo = new PDO('mysql:host=127.0.0.1;dbname=canvas', 'root', 'orel199719');
+    $llamado = $pdo->query('SELECT * FROM coordenadas', PDO::FETCH_ASSOC);
+    $coord = [];
+    foreach ($llamado as $datos){
+        $coord[] = $datos;
+    }
+    ?>*/
+    let canvas_secundario = document.getElementById("mesa-dibujo-imprimir");
+    canvas_secundario.width = window.innerWidth;
+    let cxt = canvas_secundario.getContext("2d");
+
+    ws.onopen = function (){
+        console.log("Conexión abierta");
+        /*cxt.beginPath();
+        for(let i = 0; i < coordenadas.length; i++){
+            cxt.strokeStyle = coordenadas[i]['color'];
+            cxt.lineWidth = coordenadas[i]['grosor'];
+            cxt.lineTo(coordenadas[i]['coord_x']+2, coordenadas[i]['coord_y']+2);
+            cxt.stroke();
+        }*/
+    };
+
+    ws.onmessage = function (data) {
+        let info = JSON.parse(data.data);
+        contexto.beginPath();
+        for (let i = 0; i < info.length; i++) {
+            contexto.strokeStyle = info[i].color;
+            contexto.lineTo(info[i].x, info[i].y);
+            contexto.stroke();
+        }
+
+        // if (info.comenzar) {
+        //     contexto.beginPath();
+        // }
+        // contexto.strokeStyle = info.color;
+        // contexto.lineTo(info.x, info.y);
+        // contexto.stroke();
+        // console.log(info);
+
+    };
+
+    canvas.addEventListener('mousedown', function (e) {
+        presionado = true;
+        contexto.beginPath();
+        /*let objeto = {
+            "comenzar": true
+        };
+        ws.send(JSON.stringify(objeto));*/
+
+    });
+    canvas.addEventListener('mouseup', function (e) {
+        presionado = false;
+        ws.send(JSON.stringify(coordenadasAgrupadas));
+        coordenadasAgrupadas = [];
+    });
+    canvas.addEventListener('mousemove', function (e) {
+        if (presionado) {
+            contexto.lineTo(e.x, e.y);
+            contexto.stroke();
+            let datos = {
+                x: e.x,
+                y: e.y,
+                color: contexto.strokeStyle,
+                grosor: contexto.lineWidth
+            };
+            coordenadasAgrupadas.push(datos);
+            // ws.send(JSON.stringify(datos));
+
+        }
+    });
+
+    function cambiarColor(color) {
+        contexto.strokeStyle = color;
+    }
+    function cambiarGrosor(grosor) {
+        contexto.lineWidth = grosor;
+    }
+
+</script>
+</body>
+</html>
